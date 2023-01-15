@@ -21,21 +21,21 @@ class LissajousGenerator:
         """
         Убрал задержку
         """
-        self._resolution = None
+        self.resolution = None
         self.set_resolution(resolution)
 
     def set_resolution(self, resolution):
         """
         resolution определяет количество точек в кривой
         """
-        self._resolution = resolution
+        self.resolution = resolution
 
     def generate_figure(self, freq_x, freq_y, shift):
         """
         Генерирует фигуру (массивы x и y координат точек) с заданными частотами.
         Добавил сдвиг фаз, которого не хватало по формуле
         """
-        t = np.linspace(0, 2 * np.pi, self._resolution)
+        t = np.linspace(0, 2 * np.pi, self.resolution)
         x = np.sin(freq_x * t + shift)
         y = np.cos(freq_y * t)
         return LissajousFigure(x, y)
